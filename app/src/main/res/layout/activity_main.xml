@@ -3630,8 +3630,7 @@
                 android:layout_column="12"
                 android:onClick="onButtonClicked"
                 android:layout_height="30dp"
-                android:layout_width="30dp"
-                android:visibility="gone"/>
+                android:layout_width="30dp" />
 
             <Button
                 android:id="@+id/stoneed"

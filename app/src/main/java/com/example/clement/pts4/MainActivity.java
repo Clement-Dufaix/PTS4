@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        findViewById(board[0][0]).setBackgroundResource(R.drawable.black_square);
     }
 
     public void onButtonClicked(View view) {
