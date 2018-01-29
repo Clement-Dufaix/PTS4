@@ -41,14 +41,6 @@ public class MainActivity extends AppCompatActivity {
                             R.id.stoneea, R.id.stoneeb, R.id.stoneec, R.id.stoneed, R.id.stoneee, R.id.stoneef, R.id.stoneeg, R.id.stoneeh, R.id.stoneei, R.id.stoneej},
                     {R.id.stonef0, R.id.stonef1, R.id.stonef2, R.id.stonef3, R.id.stonef4, R.id.stonef5, R.id.stonef6, R.id.stonef7, R.id.stonef8, R.id.stonef9,
                             R.id.stonefa, R.id.stonefb, R.id.stonefc, R.id.stonefd, R.id.stonefe, R.id.stoneff, R.id.stonefg, R.id.stonefh, R.id.stonefi, R.id.stonefj},
-                    {R.id.stoneg0, R.id.stoneg1, R.id.stoneg2, R.id.stoneg3, R.id.stoneg4, R.id.stoneg5, R.id.stoneg6, R.id.stoneg7, R.id.stoneg8, R.id.stoneg9,
-                            R.id.stonega, R.id.stonegb, R.id.stonegc, R.id.stonegd, R.id.stonege, R.id.stonegf, R.id.stonegg, R.id.stonegh, R.id.stonegi, R.id.stonegj},
-                    {R.id.stoneh0, R.id.stoneh1, R.id.stoneh2, R.id.stoneh3, R.id.stoneh4, R.id.stoneh5, R.id.stoneh6, R.id.stoneh7, R.id.stoneh8, R.id.stoneh9,
-                            R.id.stoneha, R.id.stonehb, R.id.stonehc, R.id.stonehd, R.id.stonehe, R.id.stonehf, R.id.stonehg, R.id.stonehh, R.id.stonehi, R.id.stonehj},
-                    {R.id.stonei0, R.id.stonei1, R.id.stonei2, R.id.stonei3, R.id.stonei4, R.id.stonei5, R.id.stonei6, R.id.stonei7, R.id.stonei8, R.id.stonei9,
-                            R.id.stoneia, R.id.stoneib, R.id.stoneic, R.id.stoneid, R.id.stoneie, R.id.stoneif, R.id.stoneig, R.id.stoneih, R.id.stoneii, R.id.stoneij},
-                    {R.id.stonej0, R.id.stonej1, R.id.stonej2, R.id.stonej3, R.id.stonej4, R.id.stonej5, R.id.stonej6, R.id.stonej7, R.id.stonej8, R.id.stonej9,
-                            R.id.stoneja, R.id.stonejb, R.id.stonejc, R.id.stonejd, R.id.stoneje, R.id.stonejf, R.id.stonejg, R.id.stonejh, R.id.stoneji, R.id.stonejj}
             };
 
     @Override
