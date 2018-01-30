@@ -30,9 +30,10 @@ public class ExampleUsage {
     /**
      * @param args the command line arguments
      */
+    /*
     public static void main(String[] args) {
         Map<ExampleNode> myMap = new Map<ExampleNode>(100, 100, new ExampleFactory());
-        for (int i = 0; i < 99; i++) {	//cr�ation de la map
+        for (int i = 0; i < 99; i++) {	//création de la map
         	myMap.setWalkable(i, 5, false);
 		}
         myMap.setWalkable(5, 5, false);
@@ -43,5 +44,6 @@ public class ExampleUsage {
             System.out.print("(" + path.get(i).getxPosition() + ", " + path.get(i).getyPosition() + ") -> ");
         }
     }
+    */
 
 }
