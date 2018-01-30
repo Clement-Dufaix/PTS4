@@ -104,10 +104,16 @@ public class MainActivity extends AppCompatActivity {
         }
         int departX = 0;
         int departY=0;
-        way = path.findPath(departX, departY, 11, 11);
-        for (int i = 0; i < way.size(); i++) {
+        int arriveeX = 11;
+        int arriveeY = 11;
+        way = path.findPath(departX, departY, arriveeX, arriveeY);
+        grid[departX][departY].getView().setBackgroundResource(R.drawable.red_square);
+        grid[departX][departY].setEtat(3);
+        grid[arriveeX][arriveeY].getView().setBackgroundResource(R.drawable.green_square);
+        grid[arriveeX][arriveeY].setEtat(4);
+        for (int i = 0; i < way.size()-1; i++) {
             grid[way.get(i).getxPosition()][way.get(i).getyPosition()].getView().setBackgroundResource(R.drawable.orange_square);
-            //changer l'état de la case
+            grid[way.get(i).getxPosition()][way.get(i).getyPosition()].setEtat(2);
             Log.e("debug pathFinding : ","(" + way.get(i).getxPosition() + ", " + way.get(i).getyPosition() + ") -> ");
         }
     }

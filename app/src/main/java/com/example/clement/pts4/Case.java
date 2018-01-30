@@ -12,7 +12,7 @@ public class Case {
     Button case_;
     int x;
     int y;
-    int etat=0; //0 = case vide, 1 = mur, 2 = chemin et vide
+    int etat=0; //0 = case vide, 1 = mur, 2 = chemin et vide, 3 = case de départ, 4 = case de départ
 
     public Case(Button v, int x, int y){
         case_ = v;
