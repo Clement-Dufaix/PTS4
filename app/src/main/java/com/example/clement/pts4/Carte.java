@@ -37,11 +37,19 @@ public class Carte {
                 if(stone == grid[i][j].getView()){
                     stoneX = i;
                     stoneY = j;
-                    grid[i][j].setEtat(1);
+                    if(grid[i][j].getEtat()==1) {
+                        stone.setBackgroundResource(R.drawable.cadre);
+                        grid[i][j].setEtat(0);
+                        path.setBlock(stoneX,stoneY,false);
+                    }
+                   else {
+                        stone.setBackgroundResource(R.drawable.black_square);
+                        grid[i][j].setEtat(1);
+                        path.setBlock(stoneX,stoneY,true);
+                    }
                     break;
                 }
             }
-        path.setBlock(stoneX,stoneY,true);
         afficherPlusCourtChemin();
     }
 
@@ -55,9 +63,9 @@ public class Carte {
             }
         }
         int departX = 0;
-        int departY=0;
+        int departY=1;
         int arriveeX = 11;
-        int arriveeY = 11;
+        int arriveeY = 14;
         way = path.findPath(departX, departY, arriveeX, arriveeY);
         grid[departX][departY].getView().setBackgroundResource(R.drawable.red_square);
         grid[departX][departY].setEtat(3);
@@ -65,9 +73,13 @@ public class Carte {
         grid[arriveeX][arriveeY].setEtat(4);
         for (int i = 0; i < way.size()-1; i++) {
             grid[way.get(i).getxPosition()][way.get(i).getyPosition()].getView().setBackgroundResource(R.drawable.orange_square);
-            grid[way.get(i).getxPosition()][way.get(i).getyPosition()].setEtat(2);
+           // grid[way.get(i).getxPosition()][way.get(i).getyPosition()].setEtat(2);
             Log.e("debug pathFinding : ","(" + way.get(i).getxPosition() + ", " + way.get(i).getyPosition() + ") -> ");
         }
+
+    }
+
+    public void setCarteDefaut1(){
 
     }
 }

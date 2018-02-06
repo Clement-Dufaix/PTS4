@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Case grid[][] = new Case[tailleMapX][tailleMapY];
+
        for(int y=0;y<tailleMapY;y++){
            for(int x=0;x<tailleMapX;x++){
                 grid[x][y]= new Case((Button)findViewById(board[y][x]),x,y);
