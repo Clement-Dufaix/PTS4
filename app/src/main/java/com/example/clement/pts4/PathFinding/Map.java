@@ -53,7 +53,7 @@ import java.util.List;
 public class Map<T extends AbstractNode> {
 
     /** weather or not it is possible to walk diagonally on the map in general. */
-    protected static boolean CANMOVEDIAGONALY = true;
+    protected static boolean CANMOVEDIAGONALY = false;
 
     /** holds nodes. first dim represents x-, second y-axis. */
     private T[][] nodes;

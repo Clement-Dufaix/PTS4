@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
     PathFindingTool path;
     List<ExampleNode> way;
-    int tailleMapX = 13;
+    int tailleMapX = 12;
     int tailleMapY = 16;
 
     @Override
