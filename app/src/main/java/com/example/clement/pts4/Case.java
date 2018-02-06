@@ -7,7 +7,7 @@ import android.widget.Button;
  * Created by Clement on 30/01/2018.
  */
 
-public class Case {
+public class Case {//test push
 
     Button case_;
     int x;
