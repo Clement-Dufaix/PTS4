@@ -14,7 +14,7 @@ public class PathFindingTool {
         myMap = new Map<ExampleNode>(tailleMapX, tailleMapY, new ExampleFactory());
     }
 
-    public void isBlock(int x, int y, boolean block){
+    public void setBlock(int x, int y, boolean block){
         myMap.setWalkable(x, y, !block);
     }
 
