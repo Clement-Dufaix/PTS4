@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
     PathFindingTool path;
     List<ExampleNode> way;
-    int tailleMapX = 12;
+    int tailleMapX = 13;
     int tailleMapY = 16;
     Carte carte;
 
@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
            }
        }
        carte = new Carte(grid);
+        carte.setCarteDefaut1();
     }
 
     public void onButtonClicked(View view) {

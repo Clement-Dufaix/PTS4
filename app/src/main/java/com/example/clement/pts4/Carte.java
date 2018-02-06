@@ -17,7 +17,7 @@ public class Carte {
 
     Case grid[][];      //tableaux de Case, dans lequel on pourra stocker chaque bouttons
 
-    int tailleMapX = 12;
+    int tailleMapX = 13;
     int tailleMapY = 16;
     List<ExampleNode> way;
     PathFindingTool path;
@@ -25,7 +25,7 @@ public class Carte {
     public Carte(Case[][] grid){
         this.grid = grid;
         path = new PathFindingTool(tailleMapX,tailleMapY);
-        afficherPlusCourtChemin();
+       afficherPlusCourtChemin();
     }
 
     public void setTower(Button stone){
@@ -81,5 +81,76 @@ public class Carte {
 
     public void setCarteDefaut1(){
 
+        grid[4][0].setEtat(1);
+        grid[4][1].setEtat(1);
+        grid[4][3].setEtat(1);
+        grid[4][4].setEtat(1);
+        grid[0][4].setEtat(1);
+        grid[1][4].setEtat(1);
+        grid[2][4].setEtat(1);
+        grid[3][4].setEtat(1);
+        grid[7][0].setEtat(1);
+        grid[7][1].setEtat(1);
+        grid[7][2].setEtat(1);
+        grid[7][5].setEtat(1);
+        grid[7][6].setEtat(1);
+        grid[7][7].setEtat(1);
+        grid[8][7].setEtat(1);
+        grid[9][7].setEtat(1);
+        grid[11][7].setEtat(1);
+        grid[12][7].setEtat(1);
+        grid[6][7].setEtat(1);
+        grid[5][7].setEtat(1);
+        grid[4][7].setEtat(1);
+        grid[4][6].setEtat(1);
+        grid[4][8].setEtat(1);
+        grid[4][9].setEtat(1);
+        grid[4][10].setEtat(1);
+        grid[4][11].setEtat(1);
+        grid[4][12].setEtat(1);
+        grid[4][15].setEtat(1);
+        grid[3][9].setEtat(1);
+        grid[1][9].setEtat(1);
+        grid[0][9].setEtat(1);
+        grid[12][10].setEtat(1);
+        grid[11][10].setEtat(1);
+        grid[10][10].setEtat(1);
+        grid[9][10].setEtat(1);
+        grid[8][10].setEtat(1);
+        grid[7][10].setEtat(1);
+        grid[7][11].setEtat(1);
+        grid[7][13].setEtat(1);
+        grid[7][14].setEtat(1);
+        grid[7][15].setEtat(1);
+
+        rafraichirMap();
     }
+
+    public void rafraichirMap(){    //Fonction qui peut créer des latences!!!!!
+        for (int y = 0; y < tailleMapY; y++)
+            for (int x = 0; x < tailleMapX; x++){
+                switch(grid[x][y].getEtat()){
+                    case 0 : grid[x][y].getView().setBackgroundResource(R.drawable.cadre);
+                    path.setBlock(x,y,false);
+                    break;
+                    case 1 : grid[x][y].getView().setBackgroundResource(R.drawable.black_square);
+                        path.setBlock(x,y,true);
+                        break;
+                    case 2 : grid[x][y].getView().setBackgroundResource(R.drawable.black_square);    //TODO : image tour a créer
+                        path.setBlock(x,y,false);
+                    break;
+                    case 3 : grid[x][y].getView().setBackgroundResource(R.drawable.green_square);
+                        path.setBlock(x,y,false);
+                    break;
+                    case 4 : grid[x][y].getView().setBackgroundResource(R.drawable.red_square);
+                        path.setBlock(x,y,false);
+                    break;
+                    default : grid[x][y].getView().setBackgroundResource(R.drawable.cadre);
+                        path.setBlock(x,y,false);
+                    break;
+                }
+            }
+            afficherPlusCourtChemin();
+        }
+
 }
