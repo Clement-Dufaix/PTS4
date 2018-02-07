@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 
 import com.example.clement.pts4.PathFinding.ExampleNode;
 import com.example.clement.pts4.PathFinding.PathFindingTool;
@@ -14,31 +13,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    PathFindingTool path;
-    List<ExampleNode> way;
-    int tailleMapX = 13;
-    int tailleMapY = 16;
-    Carte carte;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        Case grid[][] = new Case[tailleMapX][tailleMapY];
-
-       for(int y=0;y<tailleMapY;y++){
-           for(int x=0;x<tailleMapX;x++){
-                grid[x][y]= new Case((Button)findViewById(board[y][x]),x,y);
-           }
-       }
-       carte = new Carte(grid);
-        carte.setCarteDefaut1();
-    }
-
-    public void onButtonClicked(View view) {
-        carte.setTower((Button) view);
-    }
-
+    Case grid[][];      //tableaux de Case, dans lequel on pourra stocker chaque bouttons
     int board[][] =     //contient les id des bouttons
             {
                     {R.id.stone00, R.id.stone01, R.id.stone02, R.id.stone03, R.id.stone04, R.id.stone05, R.id.stone06, R.id.stone07, R.id.stone08, R.id.stone09,
@@ -74,4 +49,72 @@ public class MainActivity extends AppCompatActivity {
                     {R.id.stonef0, R.id.stonef1, R.id.stonef2, R.id.stonef3, R.id.stonef4, R.id.stonef5, R.id.stonef6, R.id.stonef7, R.id.stonef8, R.id.stonef9,
                             R.id.stonefa, R.id.stonefb, R.id.stonefc, R.id.stonefd, R.id.stonefe, R.id.stoneff, R.id.stonefg, R.id.stonefh, R.id.stonefi, R.id.stonefj},
             };
-}
+
+    PathFindingTool path;
+    List<ExampleNode> way;
+    int tailleMapX = 13;
+    int tailleMapY = 16;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        //findViewById(board[0][0]).setTag(1,1);
+        grid = new Case[tailleMapX][tailleMapY];
+       for(int y=0;y<tailleMapY;y++){
+           for(int x=0;x<tailleMapX;x++){
+               Log.e("bug!!!", "onCreate: " );
+                grid[x][y]= new Case((Button)findViewById(board[y][x]),x,y);
+           }
+       }
+        path = new PathFindingTool(tailleMapX,tailleMapY);
+        afficherPlusCourtChemin();
+
+    }
+
+    public void onButtonClicked(View view) {
+        Button stone = (Button) view;
+        stone.setBackgroundResource(R.drawable.black_square);
+       // stone.setTag(1,"1");
+        View v;
+        int stoneX=0;
+        int stoneY=0;
+        for (int i = 0; i < tailleMapX; i++)
+            for (int j = 0; j < tailleMapY; j++){
+                if(stone == grid[i][j].getView()){
+                    stoneX = i;
+                    stoneY = j;
+                    grid[i][j].setEtat(1);
+                    break;
+                }
+            }
+        path.isBlock(stoneX,stoneY,true);
+        afficherPlusCourtChemin();
+    }
+
+    private void afficherPlusCourtChemin(){
+        if(way!=null){
+            for (int i = 0; i < way.size(); i++) {
+                Log.e("debug : ", ""+ R.drawable.black_square);   //android.content.res.Resources@797147c
+                //comparer avec case noir
+                if(grid[way.get(i).getxPosition()][way.get(i).getyPosition()].etat!=1)
+                grid[way.get(i).getxPosition()][way.get(i).getyPosition()].getView().setBackgroundResource(R.drawable.cadre);
+            }
+        }
+        int departX = 0;
+        int departY=0;
+        int arriveeX = 11;
+        int arriveeY = 11;
+        way = path.findPath(departX, departY, arriveeX, arriveeY);
+        grid[departX][departY].getView().setBackgroundResource(R.drawable.red_square);
+        grid[departX][departY].setEtat(3);
+        grid[arriveeX][arriveeY].getView().setBackgroundResource(R.drawable.green_square);
+        grid[arriveeX][arriveeY].setEtat(4);
+        for (int i = 0; i < way.size()-1; i++) {
+            grid[way.get(i).getxPosition()][way.get(i).getyPosition()].getView().setBackgroundResource(R.drawable.orange_square);
+            grid[way.get(i).getxPosition()][way.get(i).getyPosition()].setEtat(2);
+            Log.e("debug pathFinding : ","(" + way.get(i).getxPosition() + ", " + way.get(i).getyPosition() + ") -> ");
+        }
+    }
+
+
