@@ -46,6 +46,7 @@ public class Carte {
                             stone.setBackgroundResource(R.drawable.tower);
                             grid[i][j].setEtat(2);
                             path.setBlock(stoneX, stoneY, true);
+                            Tour t = new Tour(i,j);
                         }
                         break;
                     }
