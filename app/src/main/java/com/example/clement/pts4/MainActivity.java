@@ -14,6 +14,35 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     Case grid[][];      //tableaux de Case, dans lequel on pourra stocker chaque bouttons
+
+
+    PathFindingTool path;
+    List<ExampleNode> way;
+    int tailleMapX = 13;
+    int tailleMapY = 16;
+    Carte carte;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        //findViewById(board[0][0]).setTag(1,1);
+        grid = new Case[tailleMapX][tailleMapY];
+        for (int y = 0; y < tailleMapY; y++) {
+            for (int x = 0; x < tailleMapX; x++) {
+                Log.e("bug!!!", "onCreate: ");
+                grid[x][y] = new Case((Button) findViewById(board[y][x]), x, y);
+            }
+        }
+        carte = new Carte(grid);
+        carte.setCarteDefaut1();
+
+    }
+
+    public void onButtonClicked(View view) {
+        carte.setTower((Button) view);
+    }
+
     int board[][] =     //contient les id des bouttons
             {
                     {R.id.stone00, R.id.stone01, R.id.stone02, R.id.stone03, R.id.stone04, R.id.stone05, R.id.stone06, R.id.stone07, R.id.stone08, R.id.stone09,
@@ -49,33 +78,6 @@ public class MainActivity extends AppCompatActivity {
                     {R.id.stonef0, R.id.stonef1, R.id.stonef2, R.id.stonef3, R.id.stonef4, R.id.stonef5, R.id.stonef6, R.id.stonef7, R.id.stonef8, R.id.stonef9,
                             R.id.stonefa, R.id.stonefb, R.id.stonefc, R.id.stonefd, R.id.stonefe, R.id.stoneff, R.id.stonefg, R.id.stonefh, R.id.stonefi, R.id.stonefj},
             };
-
-    PathFindingTool path;
-    List<ExampleNode> way;
-    int tailleMapX = 13;
-    int tailleMapY = 16;
-    Carte carte;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        //findViewById(board[0][0]).setTag(1,1);
-        grid = new Case[tailleMapX][tailleMapY];
-        for (int y = 0; y < tailleMapY; y++) {
-            for (int x = 0; x < tailleMapX; x++) {
-                Log.e("bug!!!", "onCreate: ");
-                grid[x][y] = new Case((Button) findViewById(board[y][x]), x, y);
-            }
-        }
-        carte = new Carte(grid);
-        carte.setCarteDefaut1();
-
-    }
-
-    public void onButtonClicked(View view) {
-        carte.setTower((Button) view);
-    }
 
 
 }
