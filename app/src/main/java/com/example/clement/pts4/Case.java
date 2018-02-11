@@ -18,6 +18,8 @@ public class Case {//test push
         case_ = v;
     }
 
+
+
     public void setEtat(int etat){
         this.etat=etat;
     }

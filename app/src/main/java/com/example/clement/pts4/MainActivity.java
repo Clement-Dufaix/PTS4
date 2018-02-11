@@ -61,13 +61,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         //findViewById(board[0][0]).setTag(1,1);
         grid = new Case[tailleMapX][tailleMapY];
-       for(int y=0;y<tailleMapY;y++){
-           for(int x=0;x<tailleMapX;x++){
-               Log.e("bug!!!", "onCreate: " );
-                grid[x][y]= new Case((Button)findViewById(board[y][x]),x,y);
-           }
-       }
-        path = new PathFindingTool(tailleMapX,tailleMapY);
+        for (int y = 0; y < tailleMapY; y++) {
+            for (int x = 0; x < tailleMapX; x++) {
+                Log.e("bug!!!", "onCreate: ");
+                grid[x][y] = new Case((Button) findViewById(board[y][x]), x, y);
+            }
+        }
+        path = new PathFindingTool(tailleMapX, tailleMapY);
         afficherPlusCourtChemin();
 
     }
@@ -75,34 +75,34 @@ public class MainActivity extends AppCompatActivity {
     public void onButtonClicked(View view) {
         Button stone = (Button) view;
         stone.setBackgroundResource(R.drawable.black_square);
-       // stone.setTag(1,"1");
+        // stone.setTag(1,"1");
         View v;
-        int stoneX=0;
-        int stoneY=0;
+        int stoneX = 0;
+        int stoneY = 0;
         for (int i = 0; i < tailleMapX; i++)
-            for (int j = 0; j < tailleMapY; j++){
-                if(stone == grid[i][j].getView()){
+            for (int j = 0; j < tailleMapY; j++) {
+                if (stone == grid[i][j].getView()) {
                     stoneX = i;
                     stoneY = j;
                     grid[i][j].setEtat(1);
                     break;
                 }
             }
-        path.isBlock(stoneX,stoneY,true);
+        path.setBlock(stoneX, stoneY, true);
         afficherPlusCourtChemin();
     }
 
-    private void afficherPlusCourtChemin(){
-        if(way!=null){
+    private void afficherPlusCourtChemin() {
+        if (way != null) {
             for (int i = 0; i < way.size(); i++) {
-                Log.e("debug : ", ""+ R.drawable.black_square);   //android.content.res.Resources@797147c
+                Log.e("debug : ", "" + R.drawable.black_square);   //android.content.res.Resources@797147c
                 //comparer avec case noir
-                if(grid[way.get(i).getxPosition()][way.get(i).getyPosition()].etat!=1)
-                grid[way.get(i).getxPosition()][way.get(i).getyPosition()].getView().setBackgroundResource(R.drawable.cadre);
+                if (grid[way.get(i).getxPosition()][way.get(i).getyPosition()].etat != 1)
+                    grid[way.get(i).getxPosition()][way.get(i).getyPosition()].getView().setBackgroundResource(R.drawable.cadre);
             }
         }
         int departX = 0;
-        int departY=0;
+        int departY = 0;
         int arriveeX = 11;
         int arriveeY = 11;
         way = path.findPath(departX, departY, arriveeX, arriveeY);
@@ -110,11 +110,13 @@ public class MainActivity extends AppCompatActivity {
         grid[departX][departY].setEtat(3);
         grid[arriveeX][arriveeY].getView().setBackgroundResource(R.drawable.green_square);
         grid[arriveeX][arriveeY].setEtat(4);
-        for (int i = 0; i < way.size()-1; i++) {
+        for (int i = 0; i < way.size() - 1; i++) {
             grid[way.get(i).getxPosition()][way.get(i).getyPosition()].getView().setBackgroundResource(R.drawable.orange_square);
             grid[way.get(i).getxPosition()][way.get(i).getyPosition()].setEtat(2);
-            Log.e("debug pathFinding : ","(" + way.get(i).getxPosition() + ", " + way.get(i).getyPosition() + ") -> ");
+            Log.e("debug pathFinding : ", "(" + way.get(i).getxPosition() + ", " + way.get(i).getyPosition() + ") -> ");
         }
     }
+
+}
 
 

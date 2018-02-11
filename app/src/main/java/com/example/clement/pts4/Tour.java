@@ -8,15 +8,16 @@ public class Tour {
 
 
     static float dmg = 1;
-    static double vitesseA = 0.5 ;
+    static double cadence = 0.5 ;
 
     public Tour(){
 
         this.dmg=dmg;
-        this.vitesseA=vitesseA;
+        this.cadence=cadence;
+
     }
 
-    public void attaquer(float dmg){
+    public void attaquer(){
 
     }
 
