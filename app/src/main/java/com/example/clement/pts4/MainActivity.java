@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
         path.setBlock(stoneX, stoneY, true);
         afficherPlusCourtChemin();
     }
-
+//
     private void afficherPlusCourtChemin() {
         if (way != null) {
             for (int i = 0; i < way.size(); i++) {
