@@ -25,7 +25,7 @@ public class Carte {
     public Carte(Case[][] grid){
         this.grid = grid;
         path = new PathFindingTool(tailleMapX,tailleMapY);
-       afficherPlusCourtChemin();
+       afficherPlusCourtChemin(0,1,12,14);
     }
 
     public void setTower(Button stone){
@@ -34,38 +34,30 @@ public class Carte {
         int stoneY=0;
         for (int i = 0; i < tailleMapX; i++)
             for (int j = 0; j < tailleMapY; j++){
-                if(stone == grid[i][j].getView()){
+                if(stone == grid[i][j].getView()) {
                     stoneX = i;
                     stoneY = j;
-                    if(grid[i][j].getEtat()==1) {
-                        stone.setBackgroundResource(R.drawable.cadre);
-                        grid[i][j].setEtat(0);
-                        path.setBlock(stoneX,stoneY,false);
+                    if (grid[i][j].getEtat() != 1) {
+                        if (grid[i][j].getEtat() == 2) {
+                            stone.setBackgroundResource(R.drawable.cadre);
+                            grid[i][j].setEtat(0);
+                            path.setBlock(stoneX, stoneY, false);
+                        } else {
+                            stone.setBackgroundResource(R.drawable.tower);
+                            grid[i][j].setEtat(2);
+                            path.setBlock(stoneX, stoneY, true);
+                        }
+                        break;
                     }
-                   else {
-                        stone.setBackgroundResource(R.drawable.black_square);
-                        grid[i][j].setEtat(1);
-                        path.setBlock(stoneX,stoneY,true);
-                    }
-                    break;
                 }
             }
-        afficherPlusCourtChemin();
+        rafraichirMap();
     }
 
-    public void afficherPlusCourtChemin (){
-        if(way!=null){
-            for (int i = 0; i < way.size(); i++) {
-                Log.e("debug : ", ""+ R.drawable.black_square);   //android.content.res.Resources@797147c
-                //comparer avec case noir
-                if(grid[way.get(i).getxPosition()][way.get(i).getyPosition()].etat!=1)
-                    grid[way.get(i).getxPosition()][way.get(i).getyPosition()].getView().setBackgroundResource(R.drawable.cadre);
-            }
-        }
-        int departX = 0;
-        int departY=1;
-        int arriveeX = 11;
-        int arriveeY = 14;
+    public void afficherPlusCourtChemin ( int departX,
+            int departY,
+            int arriveeX,
+            int arriveeY){
         way = path.findPath(departX, departY, arriveeX, arriveeY);
         grid[departX][departY].getView().setBackgroundResource(R.drawable.red_square);
         grid[departX][departY].setEtat(3);
@@ -77,6 +69,10 @@ public class Carte {
             Log.e("debug pathFinding : ","(" + way.get(i).getxPosition() + ", " + way.get(i).getyPosition() + ") -> ");
         }
 
+    }
+
+    public List<ExampleNode> getWay(int departX, int departY, int arriveeX, int arriveeY){
+        return  path.findPath(departX, departY, arriveeX, arriveeY);
     }
 
     public void setCarteDefaut1(){
@@ -136,8 +132,8 @@ public class Carte {
                     case 1 : grid[x][y].getView().setBackgroundResource(R.drawable.black_square);
                         path.setBlock(x,y,true);
                         break;
-                    case 2 : grid[x][y].getView().setBackgroundResource(R.drawable.black_square);    //TODO : image tour a créer
-                        path.setBlock(x,y,false);
+                    case 2 : grid[x][y].getView().setBackgroundResource(R.drawable.tower);    //TODO : image tour a créer
+                        path.setBlock(x,y,true);
                     break;
                     case 3 : grid[x][y].getView().setBackgroundResource(R.drawable.green_square);
                         path.setBlock(x,y,false);
@@ -150,7 +146,7 @@ public class Carte {
                     break;
                 }
             }
-            afficherPlusCourtChemin();
+            afficherPlusCourtChemin(0,1,12,14);
         }
 
 }

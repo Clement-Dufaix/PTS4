@@ -36,7 +36,8 @@ public class MainActivity extends AppCompatActivity {
         }
         carte = new Carte(grid);
         carte.setCarteDefaut1();
-
+        carte.afficherPlusCourtChemin(0,1,12,14);
+        Monster monster = new Monster(carte.getWay(0,1,12,14),1);
     }
 
     public void onButtonClicked(View view) {
