@@ -3,12 +3,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:id="@+id/fenetrePrincipale"
     android:background="@drawable/red_background">
 
         <GridLayout
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:layout_gravity="center"
+
             android:id="@+id/button_layout">
 
             <Button
@@ -1250,7 +1251,8 @@
                 android:layout_column="12"
                 android:onClick="onButtonClicked"
                 android:layout_height="30dp"
-                android:layout_width="30dp" />
+                android:layout_width="30dp"
+                android:visibility="gone" />
 
             <Button
                 android:id="@+id/stone0d"
@@ -1377,7 +1379,8 @@
                 android:layout_column="12"
                 android:onClick="onButtonClicked"
                 android:layout_height="30dp"
-                android:layout_width="30dp" />
+                android:layout_width="30dp"
+                android:visibility="gone" />
 
             <Button
                 android:id="@+id/stone1d"
@@ -1504,7 +1507,8 @@
                 android:layout_column="12"
                 android:onClick="onButtonClicked"
                 android:layout_height="30dp"
-                android:layout_width="30dp" />
+                android:layout_width="30dp"
+                android:visibility="gone" />
 
             <Button
                 android:id="@+id/stone2d"
@@ -1631,7 +1635,8 @@
                 android:layout_column="12"
                 android:onClick="onButtonClicked"
                 android:layout_height="30dp"
-                android:layout_width="30dp" />
+                android:layout_width="30dp"
+                android:visibility="gone" />
 
             <Button
                 android:id="@+id/stone3d"
@@ -1759,7 +1764,8 @@
                 android:layout_column="12"
                 android:onClick="onButtonClicked"
                 android:layout_height="30dp"
-                android:layout_width="30dp" />
+                android:layout_width="30dp"
+                android:visibility="gone" />
 
             <Button
                 android:id="@+id/stone4d"
@@ -1886,7 +1892,8 @@
                 android:layout_column="12"
                 android:onClick="onButtonClicked"
                 android:layout_height="30dp"
-                android:layout_width="30dp" />
+                android:layout_width="30dp"
+                android:visibility="gone" />
 
             <Button
                 android:id="@+id/stone5d"
@@ -2013,7 +2020,8 @@
                 android:layout_column="12"
                 android:onClick="onButtonClicked"
                 android:layout_height="30dp"
-                android:layout_width="30dp"/>
+                android:layout_width="30dp"
+                android:visibility="gone" />
 
             <Button
                 android:id="@+id/stone6d"
@@ -2140,7 +2148,8 @@
                 android:layout_column="12"
                 android:onClick="onButtonClicked"
                 android:layout_height="30dp"
-                android:layout_width="30dp" />
+                android:layout_width="30dp"
+                android:visibility="gone" />
 
             <Button
                 android:id="@+id/stone7d"
@@ -2267,7 +2276,8 @@
                 android:layout_column="12"
                 android:onClick="onButtonClicked"
                 android:layout_height="30dp"
-                android:layout_width="30dp" />
+                android:layout_width="30dp"
+                android:visibility="gone" />
 
             <Button
                 android:id="@+id/stone8d"
@@ -2394,7 +2404,8 @@
                 android:layout_column="12"
                 android:onClick="onButtonClicked"
                 android:layout_height="30dp"
-                android:layout_width="30dp" />
+                android:layout_width="30dp"
+                android:visibility="gone" />
 
             <Button
                 android:id="@+id/stone9d"
@@ -2643,7 +2654,8 @@
                 android:layout_column="12"
                 android:onClick="onButtonClicked"
                 android:layout_height="30dp"
-                android:layout_width="30dp" />
+                android:layout_width="30dp"
+                android:visibility="gone" />
 
             <Button
                 android:id="@+id/stonead"
@@ -2890,7 +2902,8 @@
                 android:layout_column="12"
                 android:onClick="onButtonClicked"
                 android:layout_height="30dp"
-                android:layout_width="30dp" />
+                android:layout_width="30dp"
+                android:visibility="gone" />
 
             <Button
                 android:id="@+id/stonebd"
@@ -3137,7 +3150,8 @@
                 android:layout_column="12"
                 android:onClick="onButtonClicked"
                 android:layout_height="30dp"
-                android:layout_width="30dp" />
+                android:layout_width="30dp"
+                android:visibility="gone" />
 
             <Button
                 android:id="@+id/stonecd"
@@ -3383,7 +3397,8 @@
                 android:layout_column="12"
                 android:onClick="onButtonClicked"
                 android:layout_height="30dp"
-                android:layout_width="30dp" />
+                android:layout_width="30dp"
+                android:visibility="gone" />
 
             <Button
                 android:id="@+id/stonedd"
@@ -3630,7 +3645,8 @@
                 android:layout_column="12"
                 android:onClick="onButtonClicked"
                 android:layout_height="30dp"
-                android:layout_width="30dp" />
+                android:layout_width="30dp"
+                android:visibility="gone" />
 
             <Button
                 android:id="@+id/stoneed"
@@ -3877,7 +3893,8 @@
                 android:layout_column="12"
                 android:onClick="onButtonClicked"
                 android:layout_height="30dp"
-                android:layout_width="30dp" />
+                android:layout_width="30dp"
+                android:visibility="gone" />
 
             <Button
                 android:id="@+id/stonefd"

@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 import com.example.clement.pts4.PathFinding.ExampleNode;
 import com.example.clement.pts4.PathFinding.PathFindingTool;
@@ -18,15 +20,17 @@ public class MainActivity extends AppCompatActivity {
 
     PathFindingTool path;
     List<ExampleNode> way;
-    int tailleMapX = 13;
+    int tailleMapX = 12;
     int tailleMapY = 16;
     Carte carte;
+    LinearLayout fenetrePrincipale;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //findViewById(board[0][0]).setTag(1,1);
+        fenetrePrincipale = (LinearLayout)findViewById(R.id.fenetrePrincipale);
         grid = new Case[tailleMapX][tailleMapY];
         for (int y = 0; y < tailleMapY; y++) {
             for (int x = 0; x < tailleMapX; x++) {
@@ -34,10 +38,10 @@ public class MainActivity extends AppCompatActivity {
                 grid[x][y] = new Case((Button) findViewById(board[y][x]), x, y);
             }
         }
-        carte = new Carte(grid);
+        carte = new Carte(grid,this);
         carte.setCarteDefaut1();
-        carte.afficherPlusCourtChemin(0,1,12,14);
-        Monster monster = new Monster(carte.getWay(0,1,12,14),1);
+        carte.afficherPlusCourtChemin(0,1,11,14);
+
     }
 
     public void onButtonClicked(View view) {

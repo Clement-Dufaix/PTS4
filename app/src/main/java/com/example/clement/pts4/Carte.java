@@ -17,15 +17,19 @@ public class Carte {
 
     Case grid[][];      //tableaux de Case, dans lequel on pourra stocker chaque bouttons
 
-    int tailleMapX = 13;
+    int tailleMapX = 12;
     int tailleMapY = 16;
     List<ExampleNode> way;
     PathFindingTool path;
+    MainActivity context;
 
-    public Carte(Case[][] grid){
+    public Carte(Case[][] grid, MainActivity context){
+        this.context=context;
         this.grid = grid;
         path = new PathFindingTool(tailleMapX,tailleMapY);
-       afficherPlusCourtChemin(0,1,12,14);
+       afficherPlusCourtChemin(0,1,11,14);
+        Monster monster = new Monster(getWay(0,1,11,14),0.05f,context);
+
     }
 
     public void setTower(Button stone){
@@ -67,7 +71,7 @@ public class Carte {
         for (int i = 0; i < way.size()-1; i++) {
             grid[way.get(i).getxPosition()][way.get(i).getyPosition()].getView().setBackgroundResource(R.drawable.orange_square);
            // grid[way.get(i).getxPosition()][way.get(i).getyPosition()].setEtat(2);
-            Log.e("debug pathFinding : ","(" + way.get(i).getxPosition() + ", " + way.get(i).getyPosition() + ") -> ");
+            //Log.e("debug pathFinding : ","(" + way.get(i).getxPosition() + ", " + way.get(i).getyPosition() + ") -> ");
         }
 
     }
@@ -95,7 +99,6 @@ public class Carte {
         grid[8][7].setEtat(1);
         grid[9][7].setEtat(1);
         grid[11][7].setEtat(1);
-        grid[12][7].setEtat(1);
         grid[6][7].setEtat(1);
         grid[5][7].setEtat(1);
         grid[4][7].setEtat(1);
@@ -109,7 +112,6 @@ public class Carte {
         grid[3][9].setEtat(1);
         grid[1][9].setEtat(1);
         grid[0][9].setEtat(1);
-        grid[12][10].setEtat(1);
         grid[11][10].setEtat(1);
         grid[10][10].setEtat(1);
         grid[9][10].setEtat(1);
@@ -147,7 +149,9 @@ public class Carte {
                     break;
                 }
             }
-            afficherPlusCourtChemin(0,1,12,14);
+            afficherPlusCourtChemin(0,1,11,14);
         }
+
+
 
 }
